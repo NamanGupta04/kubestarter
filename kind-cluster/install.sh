@@ -14,7 +14,9 @@ if ! command -v docker &>/dev/null; then
   sudo apt-get install -y docker.io
 
   echo "👤 Adding current user to docker group..."
-  sudo usermod -aG docker "$USER"
+  sudo usermod -aG docker "$USER" 
+  echo " Refreshing the group Docker" 
+  sudo newgrp docker
 
   echo "✅ Docker installed and user added to docker group."
 else
